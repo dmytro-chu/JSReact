@@ -36,9 +36,12 @@ let personalMovieDB = {
 
 const nameOfMovie = prompt('Один из последних просмотренных фильмов?', '');
 const rait = prompt('На сколько оцените его?', '');
+const nameOfMovie1 = prompt('Один из последних просмотренных фильмов?', '');
+const rait1 = prompt('На сколько оцените его?', '');
 
 personalMovieDB.movies = {
-    [nameOfMovie]: rait
+    [nameOfMovie]: rait,
+    [nameOfMovie1]: rait1
 };
 
 console.log(personalMovieDB);
