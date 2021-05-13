@@ -17,16 +17,13 @@
 // Код возьмите из предыдущего домашнего задания
 
 let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
-while(!numberOfFilms || numberOfFilms == 0 ) {
-    alert('Необходимо ввести число');
-    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
-    // if (numberOfFilms > 10) {
-    //     numberOfFilms = +prompt('Название не должно превышать 10 симвоолов. Сколько фильмов вы уже посмотрели?');
-    // }
-    
-}
-    console.log(numberOfFilms);
 
+    while(numberOfFilms == null || numberOfFilms == '' || isNaN(numberOfFilms)) {
+        alert('Необходимо ввести число');
+        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
+    }
+
+    
 let personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -35,7 +32,17 @@ let personalMovieDB = {
     privat: false
 };
 
-//alert(personalMovieDB.count);
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последних просмотренных фильмов?', ''),
+          b = prompt('На сколько оцените его?', '');
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('done');
+    } else {
+        console.log('error');
+        i--;
+    }
+}
 
 if (personalMovieDB.count < 10) {
     alert('Просмотрено довольно мало фильмов');    
@@ -47,30 +54,30 @@ if (personalMovieDB.count < 10) {
     alert('Вы ввели недопустимое значение');
 }
 
-let nameOfMovie = prompt('Один из последних просмотренных фильмов?', '');
-while (!nameOfMovie || nameOfMovie.length == 0 || nameOfMovie.length > 50 ) {
-    alert('Необходимо ввести название до 50 символов.');
-    nameOfMovie = prompt('Введите один из последних просмотренных фильмов?', '');    
-}
-let rait = prompt('На сколько оцените его?', '');
-while (!rait || rait.length == 0 || rait.length > 3 ) {
-    alert('Необходимо ввести значение до 10 (например: 5,2 или 7,3).');
-    rait = prompt('На сколько оцените его?', '');
-}
-let nameOfMovie1 = prompt('Один из последних просмотренных фильмов?', '');
-while (!nameOfMovie1 || nameOfMovie1.length == 0 || nameOfMovie1.length > 50 ) {
-    alert('Необходимо ввести название до 50 символов.');
-    nameOfMovie1 = prompt('Введите один из последних просмотренных фильмов?', '');
-}
-let rait1 = prompt('На сколько оцените его?', '');
-while (!rait1 || rait1.length == 0 || rait1.length > 3 ) {
-    alert('Необходимо ввести значение до 10 (например: 5,2 или 7,3).');
-    rait1 = prompt('На сколько оцените его?', '');
-}
+// let nameOfMovie = prompt('Один из последних просмотренных фильмов?', '');
+// while (!nameOfMovie || nameOfMovie.length == 0 || nameOfMovie.length > 50 ) {
+//     alert('Необходимо ввести название до 50 символов.');
+//     nameOfMovie = prompt('Введите один из последних просмотренных фильмов?', '');    
+// }
+// let rait = prompt('На сколько оцените его?', '');
+// while (!rait || rait.length == 0 || rait.length > 3 ) {
+//     alert('Необходимо ввести значение до 10 (например: 5,2 или 7,3).');
+//     rait = prompt('На сколько оцените его?', '');
+// }
+// let nameOfMovie1 = prompt('Один из последних просмотренных фильмов?', '');
+// while (!nameOfMovie1 || nameOfMovie1.length == 0 || nameOfMovie1.length > 50 ) {
+//     alert('Необходимо ввести название до 50 символов.');
+//     nameOfMovie1 = prompt('Введите один из последних просмотренных фильмов?', '');
+// }
+// let rait1 = prompt('На сколько оцените его?', '');
+// while (!rait1 || rait1.length == 0 || rait1.length > 3 ) {
+//     alert('Необходимо ввести значение до 10 (например: 5,2 или 7,3).');
+//     rait1 = prompt('На сколько оцените его?', '');
+// }
 
-personalMovieDB.movies = {
-    [nameOfMovie]: rait,
-    [nameOfMovie1]: rait1
-};
+// personalMovieDB.movies = {
+//     [nameOfMovie]: rait,
+//     [nameOfMovie1]: rait1
+// };
 
 console.log(personalMovieDB);
